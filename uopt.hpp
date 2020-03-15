@@ -128,7 +128,7 @@ private:
 
         const char* arg = argv[i] + 1;
         for (const char* pt = arg; *pt; ++pt) {
-            auto flag = std::find_if(flags.begin(), flags.end(), [&](auto x) { return x.shortflag == *pt; });
+            auto flag = FINDFLAG(shortflag == *pt);
             if (flag != flags.end()) {
                 flag->present = true;
                 if (flag->hasvalue) {
